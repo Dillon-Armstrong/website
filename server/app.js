@@ -1,5 +1,5 @@
 /* eslint-disable no-console */
-require('dotenv').congig();
+require('dotenv').config();
 const path = require('path');
 const express = require('express');
 const morgan = require('morgan');
@@ -11,7 +11,7 @@ app.use(express.json());
 app.use(cors());
 
 // comment out for production
-app.use(morgan());
+app.use(morgan('dev'));
 
 app.use(express.static(path.join(__dirname, '../client/dist')));
 
