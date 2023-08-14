@@ -3,33 +3,33 @@ const path = require('path');
 module.exports = {
   mode: "development",
   devtool: "inline-source-map",
-  entry: path.join(__dirname,"client", "src", "index.jsx"),
+  entry: path.join(__dirname, "client", "src", "index.jsx"),
   output: {
     filename: "bundle.js",
-    path: path.resolve(__dirname,"client", "dist"),
+    path: path.resolve(__dirname, "client", "dist"),
   },
-    module: {
+  module: {
     rules: [
       {
         test: [/\.jsx$/],
         exclude: /node_modules/,
         resolve: {
-          extensions: [".js", ".jsx"]
+          extensions: [".js", ".jsx"],
         },
-        use:{
+        use: {
           loader: "babel-loader",
           options: {
             presets: ["@babel/preset-env", "@babel/preset-react"],
-          }
-        }
+          },
+        },
       },
       {
         test: /\.css$/,
         use: [
           { loader: "style-loader" },
-          { loader: "css-loader"}
-        ]
-      }
-    ]
-  }
-}
+          { loader: "css-loader" },
+        ],
+      },
+    ],
+  },
+};
