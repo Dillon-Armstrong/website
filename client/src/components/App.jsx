@@ -1,19 +1,35 @@
-import React, {useRef} from 'react';
+import React, { useRef, useLayoutEffect } from 'react';
 import gsap from 'gsap';
+import Nodes from './nodes';
 
 export default function App() {
-  React.useLayoutEffect(() => {
-    const ctx = gsap.context(() => {
+  // const header = useRef();
+  useLayoutEffect(() => {
+    const headCtx = gsap.context(() => {
       gsap.from(".name", {
         x: 100,
         duration: 2,
-        repeat: 2,
+        repeat: 0,
       });
     });
-    return () => ctx.revert();
-  });
+    return () => headCtx.revert();
+  }, []);
+
+  useLayoutEffect(() => {
+    const nodeCtx = gsap.context(() => {
+      gsap.to(".n", {
+        duration: 3,
+        ease: "circ.out",
+        y: 400,
+      });
+    });
+    return () => nodeCtx.revert();
+  }, []);
 
   return (
-    <h1 className="name">Dillon Armstrong</h1>
+    <div className="body">
+      <h1 className="name">Dillon Armstrong</h1>
+      <Nodes />
+    </div>
   );
 }
