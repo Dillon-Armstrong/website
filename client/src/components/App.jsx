@@ -15,16 +15,7 @@ export default function App() {
     return () => headCtx.revert();
   }, []);
 
-  useLayoutEffect(() => {
-    const nodeCtx = gsap.context(() => {
-      gsap.to(".n", {
-        duration: 3,
-        ease: "circ.out",
-        y: 400,
-      });
-    });
-    return () => nodeCtx.revert();
-  }, []);
+
 
   return (
     <div className="body">
