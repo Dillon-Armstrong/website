@@ -1,6 +1,7 @@
 {
   "extends": "airbnb",
   "rules": {
-    "quotes": "off"
+    "quotes": "off",
+    "no-plusplus": "off"
   }
 }
