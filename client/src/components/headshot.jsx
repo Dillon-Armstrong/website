@@ -1,7 +1,9 @@
-import React from 'react';
+import React, { useRef } from 'react';
+import headShot from '../../dist/IMG_0957.jpeg';
+import ImageIcon from '../../dist/icons8-murder-chalk-48.jpeg';
 
-export default function Headshot() {
+export default function Headshot({ imageRef }) {
   return (
-    <div>  headshot goes here! </div>
+    <img ref={imageRef} src={headShot} alt={imageIcon}></img>
   );
 }
