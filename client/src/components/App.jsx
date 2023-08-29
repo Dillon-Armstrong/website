@@ -10,7 +10,7 @@ export default function App() {
 
   useLayoutEffect(() => {
     const headCtx = gsap.context(() => {
-      gsap.from(headerRef.current, {
+      gsap.fromTo(headerRef.current, { x: 50 }, {
         x: 100,
         duration: 2,
         repeat: 0,
@@ -19,13 +19,16 @@ export default function App() {
       gsap.set(imageRef.current, {
         yPercent: -50,
         xPercent: -50,
-        top: "50%",
-        left: "50%",
+        top: "42%",
+        left: "48%",
         position: "absolute",
+        opacity: 0,
       });
 
-      gsap.fromTo(imageRef.current, { scale: 0.1 }, {
-        scale: 2, duration: 3, ease: "expoScale(.1, 2)", repeat: 0,
+      gsap.to(imageRef.current, { opacity: 1, duration: 4 });
+
+      gsap.fromTo(imageRef.current, { scale: 1 }, {
+        scale: 3, duration: 3, ease: "expoScale(1, 2.5)", repeat: 0,
       });
     });
     return () => headCtx.revert();
@@ -34,10 +37,10 @@ export default function App() {
   return (
     <>
       <h1 className="name" ref={headerRef}>Dillon Armstrong</h1>
-      <div className="body">
+      <div className="app">
+        <SkillsList />
         <Headshot imageRef={imageRef} />
       </div>
-      <SkillsList />
     </>
   );
 }

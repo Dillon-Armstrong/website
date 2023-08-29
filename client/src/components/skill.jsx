@@ -18,7 +18,7 @@ export default function Skill({ name, tools }) {
 
   return (
     <ul ref={nameRef}>
-      {name}
+      <h3>{name}</h3>
       {tools.map((tool) => <Tool key={tool} tool={tool} />)}
     </ul>
   );

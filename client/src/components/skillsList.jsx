@@ -14,6 +14,8 @@ export default function SkillsList() {
   const names = Object.keys(skills);
 
   return (
-    names.map((k) => <Skill key={k} name={k} tools={skills[k]} />)
+    <ul>
+      {names.map((k) => <Skill key={k} name={k} tools={skills[k]} />)}
+    </ul>
   );
 }
