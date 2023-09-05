@@ -1,6 +1,8 @@
 body {
   display: flex;
   justify-content: center;
+  max-width: 100%;
+  margin: 0 auto;
 }
 
 #root {
@@ -21,8 +23,8 @@ h1 {
 }
 
 img {
-  max-width: 15%;
-  max-height: 15%;
+  max-width: 10%;
+  max-height: 10%;
   align-self: center;
   border-radius: 25%;
 }
