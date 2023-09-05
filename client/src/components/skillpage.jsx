@@ -9,7 +9,7 @@ export default function Skill({ name, tools }) {
     const nameCtx = gsap.context(() => {
       gsap.from(nameRef.current, {
         opacity: 0,
-        delay: 2,
+        delay: 0.5,
         duration: 1,
       });
     });

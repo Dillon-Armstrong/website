@@ -19,8 +19,8 @@ export default function App() {
       gsap.set(imageRef.current, {
         yPercent: -50,
         xPercent: -50,
-        top: "42%",
-        left: "48%",
+        top: "32%",
+        left: "82%",
         position: "absolute",
         opacity: 0,
       });
