@@ -29,13 +29,6 @@ export default function SkillsList() {
     }
   };
 
-  // const handleSwipe = (deltaX) => {
-  //   if (deltaX > 0 && currentPage > 0) {
-  //     setCurrentPage(currentPage + 1);
-  //   } else if (deltaX < 0 && currentPage < skillPages.length - 1) {
-  //     setCurrentPage(currentPage - 1);
-  //   }
-  // }
   const handlers = useSwipeable({
     onSwipedLeft: () => {
       if (currentPage === skillPages.length - 1) {
@@ -57,8 +50,13 @@ export default function SkillsList() {
   return (
     <div {...handlers}>
       <SkillPage name={skillPages[currentPage].title} tools={skillPages[currentPage].items} />
-      <button type="button" onClick={clickDown}>+</button>
-      <button type="button" onClick={clickUp}>-</button>
+      <div className="setPage">
+        <button type="button" onClick={clickDown}>-</button>
+        {currentPage}
+        /
+        {skillPages.length - 1}
+        <button type="button" onClick={clickUp}>+</button>
+      </div>
     </div>
   );
 }
