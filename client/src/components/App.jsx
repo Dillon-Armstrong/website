@@ -1,26 +1,46 @@
 import React, { useRef, useLayoutEffect } from 'react';
 import gsap from 'gsap';
-import Nodes from './nodes';
+import Headshot from './headshot';
+import SkillsList from './skillsList';
+// import Nodes from './nodes';
 
 export default function App() {
-  // const header = useRef();
+  const headerRef = useRef(null);
+  const imageRef = useRef(null);
+
   useLayoutEffect(() => {
     const headCtx = gsap.context(() => {
-      gsap.from(".name", {
+      gsap.fromTo(headerRef.current, { x: 50 }, {
         x: 100,
         duration: 2,
         repeat: 0,
+      });
+
+      gsap.set(imageRef.current, {
+        yPercent: -50,
+        xPercent: -50,
+        top: "32%",
+        left: "82%",
+        position: "absolute",
+        opacity: 0,
+      });
+
+      gsap.to(imageRef.current, { opacity: 1, duration: 4 });
+
+      gsap.fromTo(imageRef.current, { scale: 1 }, {
+        scale: 3, duration: 3, ease: "expoScale(1, 2.5)", repeat: 0,
       });
     });
     return () => headCtx.revert();
   }, []);
 
-
-
   return (
-    <div className="body">
-      <h1 className="name">Dillon Armstrong</h1>
-      <Nodes />
-    </div>
+    <>
+      <h1 className="name" ref={headerRef}>Dillon Armstrong</h1>
+      <div className="app">
+        <SkillsList />
+        <Headshot imageRef={imageRef} />
+      </div>
+    </>
   );
 }

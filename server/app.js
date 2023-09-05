@@ -17,6 +17,10 @@ app.use(express.static(path.join(__dirname, '../client/dist')));
 
 const port = process.env.PORT || 8080;
 
-app.listen(port, () => {
-  console.log(`listening on port ${port}`);
-});
+if (!module.parent) {
+  app.listen(port, () => {
+    console.log(`listening on port ${port}`);
+  });
+}
+
+module.exports = app;
