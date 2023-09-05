@@ -19,8 +19,8 @@ export default function App() {
       gsap.set(imageRef.current, {
         yPercent: -50,
         xPercent: -50,
-        top: "32%",
-        left: "82%",
+        top: "16%",
+        left: "84%",
         position: "absolute",
         opacity: 0,
       });
@@ -38,8 +38,8 @@ export default function App() {
     <>
       <h1 className="name" ref={headerRef}>Dillon Armstrong</h1>
       <div className="app">
-        <SkillsList />
         <Headshot imageRef={imageRef} />
+        <SkillsList />
       </div>
     </>
   );

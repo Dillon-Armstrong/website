@@ -10,7 +10,7 @@ export default function Tool({ tool }) {
         opacity: 0,
         x: 100,
         duration: 3,
-        delay: 2,
+        delay: 1,
       });
     });
     return () => toolCtx.revert();
