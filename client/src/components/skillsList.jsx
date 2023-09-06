@@ -48,13 +48,15 @@ export default function SkillsList() {
   });
 
   return (
-    <div {...handlers}>
+    <div className="skillPages" {...handlers}>
       <SkillPage name={skillPages[currentPage].title} tools={skillPages[currentPage].items} />
       <div className="setPage">
         <button type="button" onClick={clickDown}>-</button>
-        {currentPage}
-        /
-        {skillPages.length - 1}
+        <div>
+          {currentPage}
+          /
+          {skillPages.length - 1}
+        </div>
         <button type="button" onClick={clickUp}>+</button>
       </div>
     </div>

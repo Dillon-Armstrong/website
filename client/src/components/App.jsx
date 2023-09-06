@@ -2,6 +2,7 @@ import React, { useRef, useLayoutEffect } from 'react';
 import gsap from 'gsap';
 import Headshot from './headshot';
 import SkillsList from './skillsList';
+import Bio from './bio';
 // import Nodes from './nodes';
 
 export default function App() {
@@ -20,7 +21,7 @@ export default function App() {
         yPercent: -50,
         xPercent: -50,
         top: "12%",
-        left: "80%",
+        left: "84%",
         position: "absolute",
         opacity: 0,
       });
@@ -38,6 +39,7 @@ export default function App() {
     <>
       <h1 className="name" ref={headerRef}>Dillon Armstrong</h1>
       <div className="app">
+        <Bio />
         <Headshot imageRef={imageRef} />
         <SkillsList />
       </div>
