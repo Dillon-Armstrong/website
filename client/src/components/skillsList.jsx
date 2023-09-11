@@ -1,4 +1,5 @@
-import React, { useState, useRef } from 'react';
+import React, { useState } from 'react';
+import { useSwipeable } from 'react-swipeable';
 import SkillPage from './skillpage';
 
 export default function SkillsList() {
@@ -28,11 +29,37 @@ export default function SkillsList() {
     }
   };
 
+  const handlers = useSwipeable({
+    onSwipedLeft: () => {
+      if (currentPage === skillPages.length - 1) {
+        setCurrentPage(0);
+      } else {
+        setCurrentPage(currentPage + 1);
+      }
+    },
+    onSwipedRight: () => {
+      if (currentPage === 0) {
+        setCurrentPage(skillPages.length - 1);
+      } else {
+        setCurrentPage(currentPage - 1);
+      }
+    },
+    preventScrollOnSwipe: true,
+  });
+
   return (
-    <>
+    <div className="skillPages" {...handlers}>
       <SkillPage name={skillPages[currentPage].title} tools={skillPages[currentPage].items} />
-      <button type="button" onClick={clickDown}>+</button>
-      <button type="button" onClick={clickUp}>-</button>
-    </>
+      <div className="setPage">
+        <button type="button" onClick={clickDown}>-</button>
+        <div>
+          {currentPage}
+          /
+          {skillPages.length - 1}
+          ...swipe for more
+        </div>
+        <button type="button" onClick={clickUp}>+</button>
+      </div>
+    </div>
   );
 }

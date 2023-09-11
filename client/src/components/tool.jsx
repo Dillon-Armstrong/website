@@ -6,11 +6,11 @@ export default function Tool({ tool }) {
 
   useLayoutEffect(() => {
     const toolCtx = gsap.context(() => {
-      gsap.from(toolRef.current, {
-        opacity: 0,
-        x: 100,
+      gsap.fromTo(toolRef.current, { x: 150, opacity: 0 }, {
+        opacity: 10,
+        x: 40,
         duration: 3,
-        delay: 2,
+        delay: 1,
       });
     });
     return () => toolCtx.revert();
