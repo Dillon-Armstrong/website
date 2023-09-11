@@ -56,6 +56,7 @@ export default function SkillsList() {
           {currentPage}
           /
           {skillPages.length - 1}
+          ...swipe for more
         </div>
         <button type="button" onClick={clickUp}>+</button>
       </div>
