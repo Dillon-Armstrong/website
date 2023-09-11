@@ -1,19 +1,51 @@
-import React, { forwardRef, useState } from 'react';
+import React, { useRef, useState } from 'react';
+import emailjs from '@emailjs/browser';
+require('dotenv').config();
 
-const EmailForm = forwardRef((props, formRef) => {
-  const [message, setMessage] = useState('');
+export default function EmailForm() {
+  const service = process.env.SERVICE_ID;
+  const template = process.env.TEMPLATE_ID;
+  const publicKey = process.env.PUBLIC_KEY;
 
-  const handleChange = (e) => {
+  const formRef = useRef();
+  // const [message, setMessage] = useState({
+  //   sender: '',
+  //   text: '',
+  // });
+
+  // const handleChange = (e) => {
+  //   e.preventDefault();
+  //   setMessage.text(e.target.value);
+  // };
+
+  const sendEmail = (e) => {
     e.preventDefault();
-    setMessage(e.target.value);
+
+    emailjs.sendForm(service, template, formRef.current, publicKey)
+      .then(response => {
+        console.log(response);
+      })
+      .catch(err => {
+        console.log(err);
+      });
   };
 
   return (
-    <form ref={formRef}>
-      <input type="text" value={message} onChange={handleChange} />
-      <button type="submit"> send </button>
-    </form>
+    <>
+      <h3>
+        Email
+      </h3>
+      <form ref={formRef} onSubmit={sendEmail}>
+        <label>
+          your email
+          <input type="email" name="user_email" />
+        </label>
+        <label>
+          Message
+          <textarea type="text" rows="20" cols="20" />
+        </label>
+        <button type="submit"> send </button>
+      </form>
+    </>
   );
-});
-
-export default EmailForm;
+}
