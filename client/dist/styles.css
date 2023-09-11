@@ -1,3 +1,13 @@
+:root {
+  --hue: 190deg;
+  --sat: 90%;
+  --blur: 0px;
+  --clr: hsl(var(--hue) var(--sat) 90%);
+  --clr2: hsl(var(--hue2) var(--sat2) 85%);
+  --gradoffset: 45%;
+  --gradgap: 30%;
+}
+
 body, html {
   display: flex;
   justify-content: center;
@@ -21,6 +31,11 @@ body, html {
 
 h1 {
   color: blue;
+}
+
+.header {
+  display: flex;
+  justify-content: space-around;
 }
 
 img {
@@ -49,6 +64,13 @@ p {
   text-indent: 10%
 }
 
+form {
+  position: absolute;
+  top: 250%;
+  left: 35%;
+  z-index: 1;
+}
+
 .bio {
   border-radius: 25px;
   background-color:  #7dbbc6;
@@ -66,17 +88,24 @@ p {
   justify-content: space-between;
 }
 
-:root {
-  --hue: 190deg;
-  --sat: 90%;
-  --blur: 0px;
-  --clr: hsl(var(--hue) var(--sat) 90%);
-  --clr2: hsl(var(--hue2) var(--sat2) 85%);
-  --gradoffset: 45%;
-  --gradgap: 30%;
+.menu {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  z-index: 1;
+  border-radius: 25px;
+  background-color: black;
+  color: white;
+  position: absolute;
+  height: 800px;
+  width: 50%;
+  left: 40%;
 }
 
+
 button {
+  z-index: 2;
   font-size: 3vw;
   color: var(--text);
   font-weight: 500;

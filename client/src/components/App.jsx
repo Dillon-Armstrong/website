@@ -3,6 +3,7 @@ import gsap from 'gsap';
 import Headshot from './headshot';
 import SkillsList from './skillsList';
 import Bio from './bio';
+import MenuIcon from './menu/menuIcon';
 // import Nodes from './nodes';
 
 export default function App() {
@@ -37,7 +38,12 @@ export default function App() {
 
   return (
     <>
-      <h1 className="name" ref={headerRef}>Dillon Armstrong</h1>
+      <h1 className="header" ref={headerRef}>
+        <div>
+          Dillon Armstrong
+        </div>
+        <MenuIcon imageRef={imageRef} />
+      </h1>
       <div className="app">
         <Bio />
         <Headshot imageRef={imageRef} />

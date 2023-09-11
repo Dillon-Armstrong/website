@@ -1,4 +1,4 @@
-import React, { useState, useRef } from 'react';
+import React, { useState } from 'react';
 import { useSwipeable } from 'react-swipeable';
 import SkillPage from './skillpage';
 
