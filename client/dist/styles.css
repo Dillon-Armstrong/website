@@ -36,7 +36,7 @@ h3 {
 
 ul {
   position: absolute;
-  top: 36%;
+  top: 50%;
   font-size: 300%;
   background-color: #7dbbc6;
   height: 56%;
@@ -52,7 +52,7 @@ p {
 .setPage {
   display: flex;
   position: absolute;
-  top: 38%;
+  top: 48%;
   width: 90%;
   justify-content: space-between;
 }
