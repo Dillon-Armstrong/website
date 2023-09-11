@@ -1,6 +1,6 @@
 import React, { useRef, useState } from 'react';
 import emailjs from '@emailjs/browser';
-require('dotenv').config();
+// require('dotenv').config();
 
 export default function EmailForm() {
   const service = process.env.SERVICE_ID;
@@ -21,7 +21,7 @@ export default function EmailForm() {
   const sendEmail = (e) => {
     e.preventDefault();
 
-    emailjs.sendForm(service, template, formRef.current, publicKey)
+    emailjs.sendForm('service_hw5gdsv', 'template_uz2yhx2', formRef.current, 'Dkw8ZWULfdOQ92ca_')
       .then(response => {
         console.log(response);
       })

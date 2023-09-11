@@ -1,14 +1,19 @@
-import React, { useState } from 'react';
+import React, { useState, useLayoutEffect, useRef } from 'react';
 import gsap from 'gsap';
 import Menu from './menu';
 
 export default function MenuIcon({ imageRef }) {
   const [clicked, setClicked] = useState(false);
+  const menuRef = useRef(null);
 
   const openMenu = (e) => {
     e.preventDefault();
-    setClicked(true);
     gsap.to(imageRef.current, { zIndex: -1 });
+    setClicked(true);
+    gsap.set(
+      menuRef.current,
+      { left: 100 },
+    );
   };
 
   const goBack = (e) => {
@@ -19,7 +24,7 @@ export default function MenuIcon({ imageRef }) {
 
   return (
     clicked
-      ? <Menu goBack={goBack} />
+      ? <Menu goBack={goBack} ref={menuRef} />
       : (
         <button type="button" onClick={openMenu}>
           =
