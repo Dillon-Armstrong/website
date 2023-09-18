@@ -1,21 +1,23 @@
-import React, { useRef, useLayoutEffect } from 'react';
+/* eslint-disable arrow-body-style */
+import React, { useRef, forwardRef } from 'react';
 import gsap from 'gsap';
 import EmailForm from './emailForm';
 
-export default function Menu({ goBack }) {
-  const menuRef = useRef(null);
+const Menu = forwardRef(({ goBack }, menuRef) => {
+  // const menuRef = useRef(null);
  // const formRef = useRef(null);
 
-  useLayoutEffect(() => {
-    const menuCtx = gsap.context(() => {
-      gsap.to(
-        menuRef.current,
-        { width: 200, duration: 1 },
-      );
-    }, []);
+  // useLayoutEffect(() => {
+  //   const menuCtx = gsap.context(() => {
+  //     gsap.fromTo(
+  //       menuRef.current,
+  //       { left: 100 },
+  //       { left: 50 },
+  //     );
+  //   });
 
-    return menuCtx.revert();
-  }, []);
+  //   return menuCtx.revert();
+  // }, []);
 
   // const showForm = () => {
   //   gsap.to(formRef.current, { scale: 2 });
@@ -32,4 +34,6 @@ export default function Menu({ goBack }) {
       </div>
     </>
   );
-}
+});
+
+export default Menu;
